@@ -42,6 +42,9 @@ ro.vendor.eden.npu.version.path=/sys/devices/platform/npu@17800000/version
 ## FRP
 ro.frp.pst=/dev/block/persistent
 
+## FUSE
+persist.sys.fuse.passthrough.enable=true
+
 ## Graphics
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=2
