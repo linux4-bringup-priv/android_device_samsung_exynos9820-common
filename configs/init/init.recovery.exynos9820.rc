@@ -4,5 +4,4 @@ on init
     setprop sys.usb.configfs 1
 
 on fs
-    wait /dev/block/platform/13d60000.ufs
-    symlink /dev/block/platform/13d60000.ufs /dev/block/bootdevice
+    symlink /dev/block/by-name/${ro.boot.super_partition} /dev/block/by-name/super

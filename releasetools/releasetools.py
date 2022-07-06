@@ -1,6 +1,6 @@
 #!/bin/env python3
 #
-# Copyright (C) 2021 The LineageOS Project
+# Copyright (C) 2021-2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 import common
 import re
 
+def FullOTA_InstallBegin(info):
+  AddImage(info, "super_empty.img", "/tmp/super_empty.img", False);
+  info.script.AppendExtra('exynos9820.retrofit_dynamic_partitions();')
+  return
+
 def FullOTA_InstallEnd(info):
   OTA_InstallEnd(info)
   return
@@ -25,10 +30,11 @@ def IncrementalOTA_InstallEnd(info):
   OTA_InstallEnd(info)
   return
 
-def AddImage(info, basename, dest):
+def AddImage(info, basename, dest, printInfo=True):
   data = info.input_zip.read("IMAGES/" + basename)
   common.ZipWriteStr(info.output_zip, basename, data)
-  info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
+  if printInfo:
+    info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
 def OTA_InstallEnd(info):
