@@ -31,8 +31,32 @@ def AddImage(info, basename, dest):
   info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
+def AddImageRadio(info, basename, dest, magic, simple=False):
+  if ("RADIO/" + basename) in info.input_zip.namelist():
+    data = info.input_zip.read("RADIO/" + basename)
+    common.ZipWriteStr(info.output_zip, basename, data);
+    info.script.Print("Patching {} image unconditionally...".format(basename.split('.')[0]));
+    if simple:
+      info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest));
+    else:
+      info.script.AppendExtra('assert(mark_header_bt("%s", 0, 0, 0));' % (dest));
+      info.script.AppendExtra('assert(write_data_bt("%s", "%s", 8, %d));' % (basename, dest, magic));
+      info.script.AppendExtra('assert(mark_header_bt("%s", 0, 0, 3142939818));' % (dest));
+
 def OTA_InstallEnd(info):
   AddImage(info, "dtb.img", "/dev/block/by-name/dtb")
   AddImage(info, "dtbo.img", "/dev/block/by-name/dtbo")
   AddImage(info, "vbmeta.img", "/dev/block/by-name/vbmeta")
+
+  AddImageRadio(info, "sboot.bin", "/dev/block/by-name/bota0", 4194304);
+  AddImageRadio(info, "cm.bin", "/dev/block/by-name/bota1", 7340032);
+  AddImageRadio(info, "up_param.bin", "/dev/block/by-name/bota2", 1884160);
+  AddImageRadio(info, "keystorage.bin", "/dev/block/by-name/keystorage", 0, True);
+  AddImageRadio(info, "uh.bin", "/dev/block/by-name/uh", 0, True);
+  AddImageRadio(info, "modem.bin", "/dev/block/by-name/radio", 0, True);
+  AddImageRadio(info, "modem_5g.bin", "/dev/block/by-name/radio2", 0, True);
+  AddImageRadio(info, "modem_debug.bin", "/dev/block/by-name/cp_debug", 0, True);
+  AddImageRadio(info, "modem_debug_5g.bin", "/dev/block/by-name/cp2_debug", 0, True);
+  AddImageRadio(info, "dqmdbg.bin" "/dev/block/by-name/dqmdbg", 0, True);
+  AddImageRadio(info, "param.bin" "/dev/block/by-name/param", 0, True);
   return
