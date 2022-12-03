@@ -1,6 +1,6 @@
 #!/bin/env python3
 #
-# Copyright (C) 2021-2023 The LineageOS Project
+# Copyright (C) 2021-2024 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,18 @@
 
 import common
 import re
+
+def FullOTA_Assertions(info):
+  OTA_Assertions(info)
+  return
+
+def IncrementalOTA_Assertions(info):
+  OTA_Assertions(info)
+  return
+
+def OTA_Assertions(info):
+  # Disable VINTF checks
+  common.OPTIONS.skip_compatibility_check = True
 
 def FullOTA_InstallBegin(info):
   if info.info_dict.get("vendor.build.prop").GetProp("ro.board.platform") != "universal9825_r":
