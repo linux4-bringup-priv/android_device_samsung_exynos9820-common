@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021-2022 The LineageOS Project
+# Copyright (C) 2021-2023 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -131,11 +131,19 @@ PRODUCT_PACKAGES += \
    libhwbinder.vendor
 
 # init
+ifneq ($(TARGET_BOARD_PLATFORM), universal9825_r)
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/fstab.exynos9820:$(TARGET_COPY_OUT_RAMDISK)/fstab.exynos9820 \
     $(COMMON_PATH)/configs/init/fstab.exynos9820:$(TARGET_COPY_OUT_RAMDISK)/fstab.exynos9825 \
     $(COMMON_PATH)/configs/init/fstab.exynos9820:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.exynos9820 \
-    $(COMMON_PATH)/configs/init/fstab.exynos9820:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.exynos9825 \
+    $(COMMON_PATH)/configs/init/fstab.exynos9820:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.exynos9825
+else
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/init/fstab.exynos9825-r:$(TARGET_COPY_OUT_RAMDISK)/fstab.exynos9825 \
+    $(COMMON_PATH)/configs/init/fstab.exynos9825-r:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.exynos9825
+endif
+
+PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/init.exynos9820.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.exynos9820.rc \
     $(COMMON_PATH)/configs/init/init.exynos9820.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.exynos9820.usb.rc \
     $(COMMON_PATH)/configs/init/init.recovery.exynos9820.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.exynos9820.rc \
@@ -183,8 +191,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+ifneq ($(TARGET_BOARD_PLATFORM), universal9825_r)
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/nfc/libnfc-sec-vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-sec-vendor.conf
+endif
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -270,8 +280,10 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # PowerShare
+ifneq ($(TARGET_BOARD_PLATFORM), universal9825_r)
 PRODUCT_PACKAGES += \
     vendor.lineage.powershare@1.0-service.samsung
+endif
 
 # Public Libraries
 PRODUCT_COPY_FILES += \
@@ -333,8 +345,10 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.samsung
 
 # VNDK
+ifneq ($(TARGET_BOARD_PLATFORM), universal9825_r)
 PRODUCT_PACKAGES += \
     libutils-v32
+endif
 
 # WiFi
 PRODUCT_PACKAGES += \
