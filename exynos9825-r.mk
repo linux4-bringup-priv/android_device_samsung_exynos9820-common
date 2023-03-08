@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # init
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/fstab.exynos9825-r:$(TARGET_COPY_OUT_RAMDISK)/fstab.exynos9825 \
