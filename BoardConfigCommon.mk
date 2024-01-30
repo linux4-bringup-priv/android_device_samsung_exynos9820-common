@@ -49,6 +49,7 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_TAGS_OFFSET)
 
 ## Camera
+$(call soong_config_set,samsungCameraVars,usage_64bit,true)
 ifneq ($(TARGET_DEVICE),beyond0lte)
 SOONG_CONFIG_NAMESPACES += samsungCameraVars
 SOONG_CONFIG_samsungCameraVars += extra_ids
