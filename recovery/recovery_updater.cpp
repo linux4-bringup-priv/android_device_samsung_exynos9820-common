@@ -24,6 +24,9 @@
 #include <otautil/error_code.h>
 #include <ziparchive/zip_archive.h>
 
+using android::fs_mgr::BlockDeviceInfo;
+using android::fs_mgr::PartitionOpener;
+
 Value *VerifyNoDowngradeFn(const char* name, State *state,
                              const std::vector<std::unique_ptr<Expr>>& argv) {
   int ret = 1;
@@ -149,6 +152,14 @@ Value *RetrofitDynamicPartitionsFn(const char* /* name */, State *state,
     pt = android::fs_mgr::ReadFromImageFile("/tmp/super_empty.img");
     if (!pt) {
       return ErrorAbort(state, kFileOpenFailure, "Failed to read /tmp/super_empty.img");
+    }
+
+    PartitionOpener opener;
+    BlockDeviceInfo info;
+    if (opener.GetInfo(super_partition, &info)) {
+        if (pt->block_devices[0].size < info.size) {
+            pt->block_devices[0].size = info.size;
+        }
     }
 
     if (!android::fs_mgr::FlashPartitionTable(super_partition, *pt.get())) {
