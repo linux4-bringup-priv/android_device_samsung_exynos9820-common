@@ -64,11 +64,11 @@ vendor/bin/hw/gps.sh
 vendor/etc/gnss/gps.cer
 -vendor/lib64/vendor.samsung.hardware.gnss@2.0.so
 
-## Graphics
--vendor/lib/egl/libGLES_mali.so
--vendor/lib/hw/vulkan.mali.so
--vendor/lib64/egl/libGLES_mali.so
--vendor/lib64/hw/vulkan.mali.so
+## Graphics - from a51x - A516BXXU7FWH2
+-vendor/lib/egl/libGLES_mali.so|eafa7f78f32c97345c8e1b037e408efcaf1c90df
+-vendor/lib/hw/vulkan.mali.so|f886c029850426dd0bd4144b625a1157ba6ca6d2
+-vendor/lib64/egl/libGLES_mali.so|76ac9e981ba704f952162b68ec38f60f05f94740
+-vendor/lib64/hw/vulkan.mali.so|3ca0ef3048406c4510d2f042c3b0ca89dc924675
 
 ## Keymaster
 -vendor/lib64/libkeymaster_helper.so
