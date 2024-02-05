@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter beyond0lte beyond1lte beyond2lte beyondx d1 d2s d2x f62, $(TARGET_DEVICE)),)
+ifneq ($(filter beyond0lte beyond1lte beyond2lte beyondx d1 d1x d2s d2x f62, $(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 ifneq ($(BOARD_INCLUDE_DTB_IN_BOOTIMG), true)
