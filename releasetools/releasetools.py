@@ -93,8 +93,8 @@ def OTA_InstallEnd(info):
         AddFirmwareImage(info, model, "modem_5g.bin", "/dev/block/by-name/radio2", True)
         AddFirmwareImage(info, model, "modem_debug.bin", "/dev/block/by-name/cp_debug", True)
         AddFirmwareImage(info, model, "modem_debug_5g.bin", "/dev/block/by-name/cp2_debug", True)
-        AddFirmwareImage(info, model, "dqmdbg.bin" "/dev/block/by-name/dqmdbg", True)
-        AddFirmwareImage(info, model, "param.bin" "/dev/block/by-name/param", True)
+        AddFirmwareImage(info, model, "dqmdbg.img", "/dev/block/by-name/dqmdbg", True)
+        AddFirmwareImage(info, model, "param.bin", "/dev/block/by-name/param", True)
         info.script.AppendExtra(',"");')
 
     modelCheck = ""
