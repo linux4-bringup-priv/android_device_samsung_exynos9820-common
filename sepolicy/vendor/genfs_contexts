@@ -16,13 +16,17 @@ genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-13/13-0066/max77705-fuelgaug
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-14/14-0066/max77705-charger/power_supply/max77705-charger/type      u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-14/14-0066/max77705-charger/power_supply/otg/type                   u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-14/14-0066/max77705-fuelgauge/power_supply/max77705-fuelgauge/type  u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-16/16-0057/power_supply/pca9468-charger/type                        u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-16/16-0066/max77705-charger/power_supply/max77705-charger/type      u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-16/16-0066/max77705-charger/power_supply/otg/type                   u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-16/16-0066/max77705-fuelgauge/power_supply/max77705-fuelgauge/type  u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-17/17-0057/power_supply/pca9468-charger/type                        u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-17/17-0066/max77705-charger/power_supply/max77705-charger/type      u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-17/17-0066/max77705-charger/power_supply/otg/type                   u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d60000.hsi2c/i2c-17/17-0066/max77705-fuelgauge/power_supply/max77705-fuelgauge/type  u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d70000.hsi2c/i2c-14/14-003b/power_supply/mfc-charger/type                            u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d70000.hsi2c/i2c-15/15-003b/power_supply/mfc-charger/type                            u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/platform/15d70000.hsi2c/i2c-17/17-003b/power_supply/mfc-charger/type                            u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/15d70000.hsi2c/i2c-18/18-003b/power_supply/mfc-charger/type                            u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/sec-direct-charger/power_supply/sec-direct-charger/type                                u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/18500000.mali/dma_buf_gpu_mem                                                          u:object_r:sysfs_gpu:s0
