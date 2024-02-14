@@ -145,6 +145,7 @@ TARGET_SOC := exynos9820
 include hardware/samsung_slsi-linaro/config/BoardConfig9820.mk
 
 ## Properties
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 ## Recovery
