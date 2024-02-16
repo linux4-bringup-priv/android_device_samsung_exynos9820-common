@@ -890,6 +890,13 @@ static void enable_spkamp_reference(void *proxy)
         snprintf(pcm_path, sizeof(pcm_path), "/dev/snd/pcmC%uD%u%c",
                  SPKAMP_REFERENCE_CARD, SPKAMP_REFERENCE_DEVICE, 'c');
 
+#ifndef SUPPORT_QUAD_MIC
+        if (is_active_usage_CPCall(aproxy)) {
+            pcmconfig.channels = 2;
+            ALOGI("proxy-%s: RCV Reference Channel set as 2CH", __func__);
+        }
+#endif
+
         /* Enables Speaker AMP Reference Path */
         if (aproxy->spkamp_reference == NULL) {
             aproxy->spkamp_reference = pcm_open(SPKAMP_REFERENCE_CARD, SPKAMP_REFERENCE_DEVICE,
