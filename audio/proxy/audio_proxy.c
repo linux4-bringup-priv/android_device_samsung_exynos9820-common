@@ -442,7 +442,9 @@ static bool is_quad_mic_device(device_type device)
     struct audio_proxy *aproxy = getInstance();
     bool flag = false;
 
-    if (is_usage_CPCall(aproxy->active_capture_ausage) ||
+    if (device == DEVICE_QUAD_MIC)
+        flag = true;
+    else if (is_usage_CPCall(aproxy->active_capture_ausage) ||
             is_usage_APCall(aproxy->active_capture_ausage))
         flag = (device == DEVICE_MAIN_MIC ||
                 device == DEVICE_HANDSET_MIC ||
@@ -450,6 +452,7 @@ static bool is_quad_mic_device(device_type device)
                 device == DEVICE_SPEAKER_MIC ||
                 device == DEVICE_SPEAKER_DEX_MIC /*||
                 device == DEVICE_SPEAKER_GAMING_MIC*/);
+
     return flag;
 }
 #endif
