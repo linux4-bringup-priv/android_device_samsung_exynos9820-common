@@ -1,6 +1,4 @@
 ## Adoptable Storage
-ro.crypto.dm_default_key.options_format.version=2
-ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.volume.options=aes-256-xts:aes-256-cts:v2
 
 ## APK Verity
@@ -67,6 +65,7 @@ ro.incremental.enable=true
 ro.crypto.dm_default_key.options_format.version=2
 # Call deleteAllKeys if vold detects a factory reset
 ro.crypto.metadata_init_delete_all_keys.enabled=true
+ro.crypto.volume.metadata.method=dm-default-key
 
 ## RIL
 vendor.rild.libpath=/vendor/lib64/libsec-ril.so
