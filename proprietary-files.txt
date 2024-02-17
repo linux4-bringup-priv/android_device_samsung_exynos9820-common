@@ -70,6 +70,12 @@ vendor/etc/gnss/gps.cer
 -vendor/lib64/egl/libGLES_mali.so|76ac9e981ba704f952162b68ec38f60f05f94740
 -vendor/lib64/hw/vulkan.mali.so|3ca0ef3048406c4510d2f042c3b0ca89dc924675
 
+## HotwordEnrollment
+system/priv-app/HotwordEnrollmentOKGoogleExCORTEXM4/HotwordEnrollmentOKGoogleExCORTEXM4.apk:product/priv-app/HotwordEnrollmentOKGoogleExCORTEXM4/HotwordEnrollmentOKGoogleExCORTEXM4.apk
+system/priv-app/HotwordEnrollmentXGoogleExCORTEXM4/HotwordEnrollmentXGoogleExCORTEXM4.apk:product/priv-app/HotwordEnrollmentXGoogleExCORTEXM4/HotwordEnrollmentXGoogleExCORTEXM4.apk
+system/system_ext/framework/com.android.hotwordenrollment.common.util.jar:system_ext/framework/com.android.hotwordenrollment.common.util.jar
+system/system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml:system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
+
 ## Keymaster
 -vendor/lib64/libkeymaster_helper.so
 -vendor/lib64/libskeymaster4device.so

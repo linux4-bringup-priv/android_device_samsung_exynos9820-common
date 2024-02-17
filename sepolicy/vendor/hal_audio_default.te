@@ -9,3 +9,5 @@ allow hal_audio_default rild:unix_stream_socket connectto;
 get_prop(hal_audio_default, vendor_radio_prop);
 
 wakelock_use(hal_audio_default);
+
+allow hal_audio_default self:netlink_kobject_uevent_socket { create read };

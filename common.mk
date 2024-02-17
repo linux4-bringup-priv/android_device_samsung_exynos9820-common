@@ -26,6 +26,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl:32 \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
+    android.hardware.soundtrigger@2.0-impl \
     android.hidl.allocator@1.0.vendor:32 \
     audio.bluetooth.default \
     audio.primary.exynos9820 \
@@ -33,7 +34,8 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudioroute \
     libtinyalsa \
-    libtinycompress
+    libtinycompress \
+    sound_trigger.primary.exynos9820
 
 PRODUCT_PACKAGES += \
     SamsungDAP
@@ -135,6 +137,10 @@ PRODUCT_PACKAGES += \
    libhidltransport.vendor \
    libhwbinder \
    libhwbinder.vendor
+
+# HotwordEnrollment
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
 # init
 PRODUCT_COPY_FILES += \
