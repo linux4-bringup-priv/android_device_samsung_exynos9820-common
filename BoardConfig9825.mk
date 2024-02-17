@@ -18,6 +18,9 @@ COMMON_PATH := device/samsung/exynos9820-common
 ## Inherit exynos9820 configuration
 include $(COMMON_PATH)/BoardConfigPieLaunched.mk
 
+## Audio
+BOARD_USE_CAMCORDER_QUAD_MIC := true
+
 ## Dynamic Partitions
 ifneq ($(filter d1x d2x, $(TARGET_DEVICE)),)
 BOARD_SUPER_PARTITION_SIZE := 6480199680
