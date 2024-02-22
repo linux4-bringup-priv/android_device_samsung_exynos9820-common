@@ -169,6 +169,9 @@ include device/samsung_slsi/sepolicy/sepolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 
+## USB
+$(call soong_config_set,samsungUsbGadgetVars,gadget_name,10c00000.dwc3)
+
 ## Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
