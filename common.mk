@@ -20,6 +20,9 @@ $(call inherit-product, vendor/samsung/exynos9820-common/exynos9820-common-vendo
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Soong namespaces
+$(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@7.0-impl:32 \
