@@ -214,6 +214,15 @@ PRODUCT_PACKAGES += \
     libOMX.Exynos.VP9.Encoder \
     libOMX.Exynos.WMV.Decoder
 
+# OpenCL
+PRODUCT_PACKAGES += \
+    libOpenCL_symlink32 \
+    libOpenCL_symlink64 \
+    libOpenCL.1_symlink32 \
+    libOpenCL.1_symlink64 \
+    libOpenCL.1.1_symlink32 \
+    libOpenCL.1.1_symlink64
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
