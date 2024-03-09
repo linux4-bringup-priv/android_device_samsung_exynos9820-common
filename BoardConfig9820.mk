@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The LineageOS Project
+# Copyright (C) 2023-2024 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,9 @@ COMMON_PATH := device/samsung/exynos9820-common
 
 ## Inherit exynos9820 configuration
 include $(COMMON_PATH)/BoardConfigPieLaunched.mk
+
+## Audio
+$(call soong_config_set,exynos9820AudioVars,use_spkamp_playback,true)
 
 ## Dynamic Partitions
 BOARD_SUPER_PARTITION_SIZE := 5976883200

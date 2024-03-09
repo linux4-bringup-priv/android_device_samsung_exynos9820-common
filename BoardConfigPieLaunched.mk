@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The LineageOS Project
+# Copyright (C) 2023-2024 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@ COMMON_PATH := device/samsung/exynos9820-common
 include $(COMMON_PATH)/BoardConfigCommon.mk
 
 ## Audio
-BOARD_USE_DUAL_SPEAKER := true
-BOARD_USE_QUAD_MIC := true
+$(call soong_config_set,exynos9820AudioVars,use_dual_speaker,true)
+$(call soong_config_set,exynos9820AudioVars,use_quad_mic,true)
 
 ## Boot Image
 BOARD_BOOTIMG_HEADER_VERSION := 1

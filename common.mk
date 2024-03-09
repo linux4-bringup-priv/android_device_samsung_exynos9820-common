@@ -30,7 +30,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl \
-    android.hidl.allocator@1.0.vendor:32 \
     audio.bluetooth.default \
     audio.primary.exynos9820 \
     audio.r_submix.default \

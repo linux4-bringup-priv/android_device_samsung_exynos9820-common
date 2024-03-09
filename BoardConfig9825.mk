@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The LineageOS Project
+# Copyright (C) 2023-2024 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ COMMON_PATH := device/samsung/exynos9820-common
 include $(COMMON_PATH)/BoardConfigPieLaunched.mk
 
 ## Audio
-BOARD_USE_CAMCORDER_QUAD_MIC := true
+$(call soong_config_set,exynos9820AudioVars,use_quad_mic_camcorder,true)
 
 ## Dynamic Partitions
 ifneq ($(filter d1x d2x, $(TARGET_DEVICE)),)
