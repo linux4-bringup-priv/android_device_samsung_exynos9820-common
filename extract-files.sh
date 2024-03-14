@@ -64,8 +64,8 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        vendor/bin/hw/rild)
-            "${PATCHELF}" --replace-needed libril.so libril-samsung.so "${2}"
+        vendor/bin/vaultkeeperd|vendor/lib64/libvkservice.so)
+            sed -i 's/ro\.factory\.factory_binary/ro.vendor.factory_binary\x00/g' "${2}"
             ;;
         vendor/etc/libnfc-nci.conf)
             sed -i 's/\/data\/nfc/\/data\/vendor\/nfc/g' "${2}"
@@ -75,8 +75,7 @@ function blob_fixup() {
             sed -i 's/fopen/kopen/g' "${2}"
             ;;
         vendor/lib*/libsec-ril*.so)
-            "${PATCHELF}" --replace-needed libril.so libril-samsung.so "${2}"
-            xxd -p -c0 "${2}" | sed "s/600e40f9820c8052e10315aae30314aa/600e40f9820c8052e10315aa030080d2/g" | xxd -r -p > "${2}".patched
+            xxd -p -c0 "${2}" | sed "s/800e40f9820c8052e10316aae30315aa/800e40f9820c8052e10316aa030080d2/g" | xxd -r -p > "${2}".patched
             mv "${2}".patched "${2}"
             ;;
         vendor/lib*/libsensorlistener.so)
