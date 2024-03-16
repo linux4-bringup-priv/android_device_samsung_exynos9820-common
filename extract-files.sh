@@ -75,7 +75,7 @@ function blob_fixup() {
             sed -i 's/fopen/kopen/g' "${2}"
             ;;
         vendor/lib*/libsec-ril*.so)
-            xxd -p -c0 "${2}" | sed "s/800e40f9820c8052e10316aae30315aa/800e40f9820c8052e10316aa030080d2/g" | xxd -r -p > "${2}".patched
+            xxd -p -c0 "${2}" | sed "s/800e40f9e10316aa820c8052e30315aa/800e40f9e10316aa820c8052080080d2/g" | xxd -r -p > "${2}".patched
             mv "${2}".patched "${2}"
             ;;
         vendor/lib*/libsensorlistener.so)
