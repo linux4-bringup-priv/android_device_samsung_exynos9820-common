@@ -84,5 +84,8 @@ ro.product_ship=true
 # If not set or set to 0, OMX will only use BT.601 colorspace.
 ro.vendor.cscsupported=1
 
+## USB
+ro.usb.uvc.enabled=true
+
 ## Wi-Fi Direct
 wifi.direct.interface=p2p-dev-wlan0
