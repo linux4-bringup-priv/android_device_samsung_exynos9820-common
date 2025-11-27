@@ -34,3 +34,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/init.recovery.exynos9820.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.exynos9825.rc
+
+# NFC
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/nfc/libnfc-sec-vendor-r.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-sec-vendor.conf
