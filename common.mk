@@ -67,9 +67,8 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl:64 \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1
+    android.hardware.graphics.allocator@4.0-service \
+    android.hardware.graphics.mapper@4.0-impl
 
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.slsi
@@ -97,9 +96,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
-
-# Gralloc
-$(call soong_config_set_bool,libui,legacy_gralloc,true)
 
 # Graphics
 # Device uses high-density artwork where available
@@ -284,8 +280,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel/thermal \
     hardware/samsung \
     hardware/samsung_slsi-linaro/exynos/cpboot_v3 \
-    hardware/samsung_slsi-linaro/exynos/libaudio/audiohal \
-    hardware/samsung_slsi-linaro/exynos/gralloc/gralloc3
+    hardware/samsung_slsi-linaro/exynos/libaudio/audiohal
 
 # S Pen
 ifeq ($(TARGET_HAVE_SPEN),true)
