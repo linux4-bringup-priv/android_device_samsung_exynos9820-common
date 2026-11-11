@@ -329,13 +329,5 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-ifeq ($(findstring board_wlan_bcmdhd_sae, $(shell cat external/wpa_supplicant_8/wpa_supplicant/Android.bp)),)
-$(warning wpa_supplicant does not support BOARD_WLAN_BCMDHD_SAE, WPA3 will not work!)
-$(warning Please include the BCMDHD SAE authentication offload patch in your build.)
-
-PRODUCT_PACKAGES += \
-    WifiOverlayNoSAE
-endif
-
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
