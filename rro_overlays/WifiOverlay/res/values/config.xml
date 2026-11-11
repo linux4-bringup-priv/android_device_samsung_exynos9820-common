@@ -30,6 +30,8 @@
     <!-- Wifi driver supports IEEE80211AC for softap -->
     <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">true</bool>
 
+    <!-- Driver does SAE for softap (WPA3) -->
+    <bool translatable="false" name="config_wifi_softap_sae_supported">true</bool>
     <!-- Enable ACS (auto channel selection) for softap -->
     <bool translatable="false" name="config_wifi_softap_acs_supported">false</bool>
 
